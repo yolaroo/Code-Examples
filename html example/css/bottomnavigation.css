@@ -1,0 +1,367 @@
+
+.bottomnavigation
+{
+	background:skyblue;
+	background:-webkit-linear-gradient(dodgerblue,skyblue);
+	background:-moz-linear-gradient(dodgerblue,skyblue);
+	
+	height:50px;
+	width:960px;
+	top:590px;
+	left:0px;
+	position:relative;
+	box-shadow: inset 	0px 1px 1px navy,
+				inset	0px -1px 1px navy,
+				inset	1px 0px 1px navy,
+				inset	-1px 0px 1px navy,
+				inset	0px 0px 10px lightblue;
+				
+	text-shadow:	1px 0px 1px royalblue,
+					-1px 0px 1px royalblue,
+					0px 1px 1px royalblue,
+					0px -1px 1px royalblue;
+}
+
+.globalcover /*!!!!!!!!!*/
+{
+	width:960px;
+	height:50px;
+	position:absolute;
+	background:rgba(0,0,0,.4);
+	z-index:-20;
+}
+
+.globalreveal
+{
+	height:50px;
+	cursor:pointer;
+	width:128px;
+}
+
+.globalreveal:hover
+{
+	background:rgba(255,0,0,.2);
+}
+
+.bottomnavigation:hover
+{
+	opacity:1;
+}
+
+.globalprotector,.eduhome,.globalresetbutton,.subnav, .globenavprev, .globenavnext, .globalscore,.globalname, .soundselect, .bookselect
+{
+	position:relative;
+	float:left;
+	cursor:pointer;
+	height:50px;
+	color:white;
+	font-size:1em;
+	opacity:.8;
+	text-align:center;
+	line-height:150%;
+}
+
+.globalprotector, .eduhome,.globalresetbutton,.globenavprev, .globenavnext, .globalscore,.globalname, .soundselect, .bookselect
+{
+
+	box-shadow: inset 	0px 1px 1px rgba(0,0,100,.5),
+				inset	0px -1px 1px rgba(0,0,100,.1),
+				inset	1px 0px 1px pink,
+				inset	-1px 0px 1px navy,
+				inset	0px 0px 10px lightblue;
+}
+
+.globalprotector,.eduhome,.globalresetbutton
+{
+	width:128px;
+	font-size:2.5em;
+	line-height:125%;	
+}
+
+.globalreddot
+{
+	background:rgba(0,0,150,.8);
+	height:20px;
+	width:20px;
+	border-radius:20px;
+	margin:15px 0 0 55px;
+}
+
+.subnav
+{
+	width:192px;
+}
+
+.globenavprev
+{
+	width:96px;
+	font-size:2em;
+}
+
+.globenavnext
+{
+	width:96px;
+	font-size:2em;
+}
+
+.globalscore,.globalname, .soundselect, .bookselect
+{
+	width:96px;
+	font-size:1.4em;
+	line-height:225%;
+}
+
+.globalprotector:hover,.eduhome:hover,.globalresetbutton:hover, .globenavprev:hover, .globenavnext:hover, .globalscore:hover,.globalname:hover, .soundselect:hover
+{
+	background:powderblue;
+	background:-webkit-linear-gradient(lightcyan,skyblue);
+	background:-moz-linear-gradient(lightcyan,skyblue);
+	
+	box-shadow: inset 	0px 1px 1px red,
+				inset	0px -1px 1px red,
+				inset	1px 0px 1px red,
+				inset	-1px 0px 1px red,
+				inset	0px 0px 10px lightblue;
+}
+
+.globalprotector:active,.eduhome:active,.globalresetbutton:active, .globenavprev:active, .globenavnext:active, .globalscore:active,.globalname:active, .soundselect:active
+{
+	background:powderblue;
+	background:-webkit-linear-gradient(gold,orange);
+	background:-moz-linear-gradient(gold,orange);
+	
+
+}
+.globalzindex{z-index:100;}
+.redhighlight{background:rgba(255,0,0,.6)}
+
+/* !!!!!!!!!!!!!!!!!pop up !!!!!!!!!!!!!!!!!*/
+
+.globalpopups
+{
+	position:absolute;
+	height:590px;
+	width:960px;
+	background:rgba(255,255,255,.8);
+	background:-webkit-radial-gradient(rgba(255,255,255,.8),rgba(255,255,255,.1));
+	background:-moz-radial-gradient(rgba(255,255,255,.8),rgba(255,255,255,.1));
+	margin-top:-50px;
+	color:white;
+	font-family:helvetica;
+	z-index:10000;
+	
+}
+
+.globalnamepop
+{
+	margin:0;
+	position:absolute;
+	background:rgba(0,0,0,.7);
+	border-radius:20px;
+	width:290px;
+	height:390px;
+	margin:190px 0 0 495px;
+	box-shadow:	10px 10px 20px rgba(0,0,0,.6),
+							-5px -5px 20px rgba(0,0,0,.3);	
+
+}
+
+.globalnamesave
+{
+	height:40px;
+	width:100px;
+	border-radius:20px;
+	margin:160px 0 0 90px;
+	position:absolute;
+	border-bottom:solid rgba(0,0,0,.4) 1px;
+	border-top:solid rgba(255,255,255,.4) 1px;
+	box-shadow:	0 5px 5px rgba(0,0,0,.2),
+							inset 0px 5px 10px rgba(255,255,255,.1),
+							inset 0px -5px 10px rgba(0,0,0,.1);
+}
+
+.globalnamesave:hover
+{
+	background:rgba(255,255,255,.1);
+}
+
+.globalnamesave:active
+{
+	background:rgba(0,0,0,.2);
+}
+
+.globalnamesave p
+{
+	font-size:25px;
+	margin:0px 0 0 21px;
+	line-height:150%;
+	letter-spacing:2px;
+}
+
+.globalnamelist h1
+{
+	margin:20px 0 0 0;
+	font-size:40px;
+	text-align:center;
+	letter-spacing:5px;
+	border-top:1px solid rgba(255,255,255,.2);
+	border-bottom:1px solid rgba(0,0,0,.8);
+	box-shadow:	0 5px 5px rgba(0,0,0,.2),
+							inset 0px 5px 10px rgba(255,255,255,.1),
+							inset 0px -5px 10px rgba(0,0,0,.1);
+}
+
+.globalnamelist li h6
+{
+	margin:20px 0 0 10px;
+	font-size:20px;
+	background:rgba(255,255,255,.1);
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	user-select: text;
+	height:20px;
+	width:250px;
+	padding:10px;
+	border-bottom:1px solid rgba(0,0,0,.4);
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	letter-spacing:2px;
+	font-weight:100;
+}
+
+.globalnamelist li p
+{
+	width:250px;
+	padding:10px;
+	margin:0px 0 0 10px;
+	background:rgba(255,255,255,.1);
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	box-shadow:5px 5px 10px rgba(0,0,0,.5);
+}
+
+.globalvictory
+{
+	width:690px;
+	height:490px;
+	background:rgba(0,0,0,.7);
+	border-radius:10px;
+	margin:90px 0 0 140px;
+	box-shadow:	10px 10px 20px rgba(0,0,0,.6),
+							-5px -5px 20px rgba(0,0,0,.3);
+}
+
+.globalvictory h1
+{
+	margin:20px 0 0 0;
+	padding:10px;
+	font-size:40px;
+	text-align:center;
+	letter-spacing:5px;
+	border-top:1px solid rgba(255,255,255,.2);
+	border-bottom:1px solid rgba(0,0,0,.8);
+	box-shadow:	0 5px 5px rgba(0,0,0,.2),
+							inset 0px 5px 10px rgba(255,255,255,.1),
+							inset 0px -5px 10px rgba(0,0,0,.1);
+}
+
+.playerrecord li
+{
+	padding:10px
+}
+
+.playerrecord li p 
+{
+	background:rgba(255,255,255,.4);
+	width:605px;
+	margin:20px 0 0 20px;
+	padding:10px;
+	border-radius:5px;
+	border-top:1px solid rgba(255,255,255,.2);
+	border-bottom:1px solid rgba(0,0,0,.8);
+	box-shadow:	0 5px 5px rgba(0,0,0,.2),
+							inset 0px 5px 10px rgba(255,255,255,.1),
+							inset 0px -5px 10px rgba(0,0,0,.1);
+}
+
+/*************
+Book menu
+**************/
+
+
+.globalletterlist
+{
+	width:400px;
+	height:550px;
+	position:absolute;
+	background:rgba(0,0,0,.5);
+	border-radius:20px;
+	margin:38px 0 0 500px;
+	color:white;
+	display:none;
+	z-index:12000;
+	
+}
+
+.globalletterlist h6
+{
+	text-align:center;
+	font-size:14pt;
+	padding:10px;
+	border-bottom:2px solid white;
+}
+
+.globalletterlist li
+{
+	float:left;
+	margin:24px 0 0 34px;
+	font-size:24pt;
+	font-family:helvetica;
+	letter-spacing:1px;
+	padding:10px;
+	width:20px;
+	text-align:center;
+}
+
+.globalletterlist li:hover
+{
+	background:rgba(255,255,255,.4);
+	border-radius:10px;
+}
+
+.globalletterlist li:active
+{
+	background:rgba(255,165,0,.6);
+}
+
+.globalbookoff
+{
+	font-weight:100;
+	width:200px;
+	height:50px;
+	background:rgba(255,255,255,.2);
+	border-radius:10px;
+	position:absolute;
+	margin:430px 0 0 180px;
+	text-align:center;
+	line-height:150%;
+	border:2px solid white;
+}
+
+.globalbookoff:hover
+{
+	background:rgba(255,255,255,.4);
+}
+
+.globalbookoff:active
+{
+	background:rgba(255,165,0,.6);s
+}
+
+.globalletterlistcurrent
+{
+	color:orange;
+	background:rgba(255,255,255,.4);
+	border-radius:10px;
+}
+

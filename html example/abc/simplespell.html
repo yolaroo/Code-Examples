@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+
+
+<!--
+
+
+	<html>
+	<head>
+
+
+-->
+<html manifest="main.appcache">
+<head>
+<title>Simple Spelling</title>
+<link rel="apple-touch-icon" href="../portalpic/iphoneicon.png"/>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+	<script>
+	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)))
+	{
+		document.write("<meta name='viewport' content='user-scalable=no, width=device-width, initial-scale=0.5, maximum-scale=0.5' />");
+	}
+	else if((navigator.userAgent.match(/iPad/i)))
+	{
+		document.write("<meta name='viewport' content='user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0' />");
+	}
+	</script>
+	<link rel="stylesheet" href="../css/bottomnavigation.css">
+	<link rel="stylesheet" href="../css/lettermenu.css">
+	<link rel="stylesheet" href="../css/color.css">	
+	<script type="text/javascript" src="../java/jquery.js"></script>
+	<script type="text/javascript" src="../java/bottomnavigation.js"></script>
+	<script type="text/javascript" src="../java/lettermenu.js"></script>
+	<script type="text/javascript" src="../data/abcdata.js"></script>
+
+
+<!--
+
+
+	<script type="text/javascript" src="../java/cordova-1.5.0.js"></script>
+
+
+-->
+
+
+	<script>//ipad!!!
+		devicecheck = 0; //ipad set to 1;
+	</script>
+
+
+<script type="text/javascript" src="../java/updatecache.js"></script>
+
+
+<style> /*main*/
+
+html,p,div,a,li,ol,ul,body,h1,h2,h3,h4,h5,h6
+{
+	margin:0px;
+	padding:0px;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);	
+}
+
+ul, ol, li, a
+{
+	text-decoration:none;
+	list-style:none;
+}
+
+body
+{
+	background:rgba(0, 0, 0,.8);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	resize:none;
+}
+
+.page
+{
+	width:960px;
+	height:590px;
+	position:absolute;
+	overflow:hidden;
+	background:url("bg/p16bg.jpg");
+	border-radius:10px;
+	box-shadow:	inset 0px 1px 1px black,
+				inset 0px -1px 1px black,
+				inset 1px 0px 1px black,
+				inset -1px 0px 1px black,
+				0px 5px 10px black,
+				-5px 0px 10px black;
+}
+
+</style>
+
+<style> /*picture holder*/
+
+	.outerpicbox
+	{
+		height:450px;
+		width:300px;
+		background:rgba(50,50,50,.2);
+				
+		position:absolute;
+		margin:120px 0 0 660px;
+		border-radius:20px;
+		box-shadow:inset 10px 10px 20px rgba(0,0,0,.4),
+					inset 0px 0px 40px rgba(255,255,255,.1),
+					1px 1px 2px rgba(255,255,255,.2);	}
+
+</style>
+
+<style>/*the picture*/
+
+	.mainpic p
+	{
+		cursor:pointer;
+		height:245px;
+		position:absolute;
+		width:220px;
+		padding:20px;
+		margin:90px 0 0 20px;
+		background:rgba(0,0,0,.4);
+		border-radius:5px;
+		box-shadow:10px 10px 20px rgba(0,0,0,.8),
+					inset 2px 2px 20px rgba(255,255,255,.1);
+	}
+
+	.mainpic p img
+	{
+		height:245px;
+		width:220px;
+		border-radius:10px;
+	}
+
+</style>
+
+<style> /*div holds word lists*/
+
+.wordholder
+{
+	height:450px;
+	width:600px;
+	margin:120px 0 0 0px;
+	position:absolute;
+	padding:0 20px 0 20px;
+	border-radius:20px;
+	background:rgba(50,50,50,.2);
+	box-shadow:inset 10px 10px 20px rgba(0,0,0,.4),
+				inset 0px 0px 40px rgba(255,255,255,.1),
+				1px 1px 2px rgba(255,255,255,.2);
+}
+
+</style>
+
+<style> /*the top word*/
+
+	.topword h1
+	{
+		height:100px;
+		padding:35px 0 50px 0;
+		border-radius:20px;
+		cursor:pointer;
+		width:600px;
+		border-top:solid 1px rgba(255,255,255,.1);
+		border-bottom:solid 1px rgba(55,55,55,.6);
+		margin:25px 0 0 0;
+		background:rgba(0,0,0,.4);
+		box-shadow:10px 5px 20px rgba(0,0,0,.8),
+					inset -10px 2px 20px rgba(255,255,255,.1);
+	}
+	
+	.topword h1 ul /*needs to be set in view*/
+	{
+		margin-left:10px;	
+	}
+	
+	.topword h1 ul li
+	{
+		float:left;
+		font-family:helvetica;
+		color:rgba(255,255,255,.4);
+		width:60px;
+		height:100px;
+		margin: 10px 0 0 0;
+		line-height:140%;
+		background:rgba(255,255,255,.99);
+		font-weight:200;
+		text-align:center;
+		font-size:2.2em;
+		text-shadow:0px 1px 1px rgba(150,150,150,.2),
+					0px -1px 1px rgba(150,150,150,.2),
+					1px 0px 1px rgba(150,150,150,.2),
+					-1px 0px 1px rgba(150,150,150,.2);
+		box-shadow:20px 10px 20px rgba(0,0,0,.8);
+	}
+	
+	.topword h1 ul li:first-child
+	{
+		border-top-left-radius:20px;
+		border-bottom-left-radius:20px;	
+	}
+	
+	.topword h1 ul li:last-child
+	{
+		border-top-right-radius:20px;
+		border-bottom-right-radius:20px;	
+	}
+
+</style>
+
+<style> /*the click letter*/
+
+.clickletter h1
+{
+	height:100px;
+	width:600px;
+	margin:22px 0 0 0;
+	padding:35px 0 50px 0;
+	border-radius:20px;
+	border-top:solid 1px rgba(255,255,255,.2);
+	border-bottom:solid 1px rgba(55,55,55,.6);
+	background:rgba(255,255,255,.2);
+	box-shadow:10px 5px 20px rgba(0,0,0,.8),
+				inset -10px 2px 20px rgba(255,255,255,.1);
+}
+
+.clickletter h1 ul /*needs to be set in view*/
+{
+	margin-left:5px; /*always 5 left*/
+}
+
+.clickletter h1 ul li
+{
+	float:left;
+	cursor:pointer;
+	color:rgba(255,255,255,.8);
+	font-family:helvetica;
+	border-top:solid 1px rgba(255,255,255,.6);
+	border-left:solid 1px rgba(255,255,255,.4);	
+		
+	width:60px;
+	height:100px;
+	margin: 10px 0 0 5px;
+	line-height:140%;
+	background:rgba(0,0,0,.8);
+	font-weight:100;
+	text-align:center;
+	font-size:2.2em;
+	text-shadow:0px 1px 1px rgba(0,0,0,.1),
+				0px -1px 1px rgba(0,0,0,.1),
+				1px 0px 1px rgba(0,0,0,.1),
+				-1px 0px 1px rgba(0,0,0,.1);
+	border-radius:5px;
+	box-shadow:10px 10px 20px rgba(0,0,0,.6),
+				inset -10px 2px 20px rgba(255,255,255,.1);
+}
+
+.clickletter h1 ul li:hover
+{
+	box-shadow:10px 10px 20px rgba(220,220,220,.6),
+				inset -10px 2px 20px rgba(255,255,255,.1);	
+}
+
+</style>
+
+<style> /*top info menu*/
+
+.topbarmatch
+{
+	height:60px;
+	width:960px;
+	position:absolute;
+	background:rgba(192,192,192,.6);
+	background:-webkit-linear-gradient(rgba(192,192,192,.6),rgba(0,0,0,.6));
+	background:-moz-linear-gradient(rgba(192,192,192,.6),rgba(0,0,0,.6));
+	margin:48px 0 0 -1px;
+	box-shadow:inset 0px -25px 5px rgba(0,0,0,.2),
+				inset 0px 5px 10px rgba(255,255,255,.1);
+}
+
+.topbarmatch li
+{
+	float:left;
+	padding:20px;
+	font-family:helvetica;
+	letter-spacing:2px;
+	border-right:solid 1px rgba(0,0,0,.2);
+	text-shadow:1px 1px 1px #888;
+}
+
+.menumatch:hover, .scramblebutton:hover
+{
+	background:rgba(255,255,255,.4);
+}
+
+.menumatch, .scramblebutton
+{
+	cursor:pointer;
+}
+
+.menumatch:active, .scramblebutton:active
+{
+	border-radius:50px;
+}
+
+</style>
+
+<style> /* input menu*/
+
+.inputmenu
+{
+	background:rgba(220,220,220,.1);
+	height:590px;
+	width:960px;
+	margin:0px 0 0 0;
+	position:absolute;
+	font-family:helvetica;
+	color:white;
+}
+
+.inputmenu ul
+{
+	width:955px;
+	height:200px;
+	margin:50px 0 0 3px;
+	background:rgba(220,220,220,.1);
+	box-shadow: inset 0px 1px 1px white,
+				inset 0px -1px 1px white,
+				inset 1px 0px 1px white,
+				inset -1px 0px 1px white;
+}
+
+.inputmenu ul li
+{
+	cursor:pointer;
+	float:left;
+	height:100px;
+	width:200px;
+	background:rgba(0,0,0,.4);
+	margin:50px 0 0 40px;
+	border: 3px solid #ddd;
+	box-shadow:	0 5px 10px rgba(0,0,0,.2),
+				inset 0px 0px 10px rgba(255,255,255,.4);
+}
+
+.inputmenu ul li:hover
+{
+	box-shadow:	0 0px 20px rgba(155,155,255,.8),
+				inset 0px 0px 10px rgba(255,255,255,.4);
+}
+
+.inputmenu ul li:active
+{
+	box-shadow:	0 5px 10px rgba(155,155,255,.8),
+				inset 0px 0px 20px rgba(255,255,155,.8);	
+}
+
+.inputmenu p 
+{
+	font-size:1.6em;
+	text-shadow:2px 2px #444;
+	text-align:center;
+	margin:35px 0 0 0;
+}
+
+.indextitle
+{
+	height:100px;
+	margin:40px 0 0 0;
+}
+
+.indextitle h1
+{
+	color:white;
+	font-size:3em;
+	margin:10px 0 0 20px;
+	position:absolute;
+	background:rgba(255,140,0,.8);
+	padding:10px;
+}
+
+</style>
+
+<style> /*letter menu margin top set */
+
+.lettermenuholder
+{
+	position:absolute;
+	margin:-50px 0 0 0;
+	width:0px;
+	height:0px;
+}
+
+</style>
+
+<style> /*dictionary*/
+
+.dictionarychoice
+{
+	background:rgba(0,0,0,.1);
+	border:1px solid rgba(0,0,0,.4);
+	width:130px;
+	height:100px;
+	padding:5px 0 0 0;
+	margin:-150px 0 0 530px; /*letters*/
+	position:absolute;
+	font-size:.6em;
+	line-height:100%;
+	border-radius:10px;
+	box-shadow:inset 0px 0px 5px rgba(0,0,0,.4);
+	color:white; /* //////MATCHSINGLE!!!!!!	*/
+}
+
+.dictionarychoice ol li
+{
+	margin: 0;
+	padding:0px 0 0 0px;
+}
+
+.dictionarychoice ol li p
+{
+	margin: 5px 0 0 0;
+	font-weight:100;
+	text-indent:10px;
+	text-align:left;
+	background:rgba(255,255,255,.2);
+	padding:15px 0 15px 0;
+	letter-spacing:1px;
+	text-shadow:none;
+	cursor:pointer;
+}
+
+.dictionarychoice ol li p:hover
+{
+	background:rgba(255,255,255,.4);
+	border-radius:15px;
+}
+
+.dictionarychoice ol li p:active
+{
+	color:red;
+}
+
+.dictionaryactivechange
+{
+	color:#ddd;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- top bar-->
+	<ul class="topbarmatch">
+		<li class="scramblebutton">
+			<p>
+				Scramble
+			</p>
+		</li>
+		<li class="timematch">
+			<p>
+				Time: 0
+			</p>
+		</li>
+		<li class="scorematch">
+			<p>
+				Score: 0 pt
+			</p>
+		</li>
+		<li class="menumatch">
+			<p>
+				Menu
+			</p>
+		</li>
+
+	</ul>
+
+<!-- the picture-->
+	<div class="outerpicbox">
+		<div class="mainpic">
+			<p>
+				<!-- img Stuff-->
+			</p>
+		</div>
+	</div>
+
+<!-- the words-->
+	<div class="wordholder">
+		<div class="topword">
+			<h1>
+				<ul class="topwrite">
+					<!-- LI STUFF -->
+				</ul>
+			</h1>
+		</div> <!-- end top word-->
+
+		<div class="clickletter">
+			<h1>
+				<ul class="bottomwrite">
+					<!-- LI stuff-->
+				</ul>
+			</h1>
+		</div> <!-- end top word-->
+	</div> <!-- end wordholder-->
+
+
+<!-- LETTER MENU-->
+	<div class="lettermenuholder">										
+		<div class="lettermenutoggle"><p>ABC</p></div>
+			<div class="lettermenucontainer">
+			<div class="lettermenuleft"></div>
+			<div class="lettermenuright"></div>
+			<ul class="lettermenu">
+			<li id="" class="lettermenu1">A</li>
+			<li id="" class="lettermenu2">B</li>
+			<li id="" class="lettermenu3">C</li>
+			<li id="" class="lettermenu4">D</li>
+			</ul>
+		</div>
+	</div>
+	<!-- end letter menu-->
+
+<!-- Menu -->
+		<div class='inputmenu'>
+			<div class="indextitle">
+				<h1>
+					Menu
+				</h1>
+			</div>
+
+			<ul>
+				<li class="standardvocab">
+					<p>
+						Standard Words
+					</p>
+				</li>
+				<li class="simplevocab">
+					<p>
+						Easy Words
+					</p>
+				</li>
+			</ul>
+	
+			<div class="dictionarychoice">
+				<ol>
+					<li>
+						<p id="dic0" class='dictionarybutton'>
+							Dictionary One
+						</p>
+					</li>
+					<li>
+						<p id="dic1" class="dictionarybutton dictionaryactivechange">
+							Dictionary Two
+						</p>
+					</li>
+				</ol>
+			</div>
+	
+		</div>
+
+</div> <!-- end page-->
+
+	<!-- navigation fill-->
+	<div class="globalnavigationspace"></div>
+
+</body>
+
+<script> //navigationfill
+
+var appmasterset = 8; //set for each app!! HASH for empty!!!
+
+function cleaner ()
+{
+	//glob nav
+	appmasterset = null;
+	
+	//timer and score
+	activetime = null;
+	activegotime = null;
+	activecount = null;
+	score = null;
+	timedCountActive = null;
+	doTimerActive = null;
+	stopActive = null;
+	thescore = null;
+	timereset = null;
+	
+	//data
+	datainput = null;
+	wordlist = null;
+	wordlistlength = null;
+	indexcount = null;
+	currentword = null;
+	wordlength = null;
+	splicearray = null;
+	
+	//writer
+	getdata = null;
+	indexset = null;
+	lettersplicer = null;
+	writer = null;
+	scrambleset = null;
+	scramblemeaction = null;
+	scramblereset = null;
+	view = null;
+	
+	//action
+	clickid = null;
+	clickcount = null;
+	soundx2 = null; //sound!!!!!
+	scrambleswitch = null;
+	scrambleswitch = null;
+	clickaction = null;
+	nextfromaction = null;
+	
+	//menu
+	menutype = null;
+	menushrink = null;
+	menu01 = null;
+	menu02 = null;
+	tomenubutton = null;
+	dictionaryswitch = null; //!!!!!!!!!!
+	dictionaryaction = null; //!!!!!!!!!!
+	
+	//window
+	interaction = null;
+	
+	//letter menu
+	lettermenushortcut = null;
+
+	//sound
+	soundset = null;
+	soundx1 = null;
+	soundpower = null;
+	pic1sound = null;
+	soundtest = null;
+	
+	//bookmode
+	bookpageloadbypass = null;
+	modmult = null; //extra!!!
+	
+	//content
+	$('.page').remove();
+	
+	return false;
+}
+
+</script>
+
+<script> //timer and score
+
+var activetime;
+var activegotime = 0;
+var activecount = 0;
+var score = 0;
+
+//timer
+function timedCountActive()
+{
+	$('.timematch p').html('Time: ' + activecount);
+	activecount=activecount+1;
+	activetime=setTimeout("timedCountActive()",1000);
+	return false;
+}
+
+//timer loop
+function doTimerActive()
+{
+	if (!activegotime)
+		{
+		  activegotime=1;
+		  timedCountActive();
+		}
+		return false;
+}
+
+//timer stop
+function stopActive()
+{
+	clearTimeout(activetime);
+	activegotime=0;
+	return false;
+}
+
+function thescore ()
+{
+	score = score + wordlength;
+	$(".scorematch p").html("Score: "+score+" pt");
+	return false
+}
+
+function timereset ()
+{
+	activecount = 0;
+	$('.timematch p').html('Time: ' + activecount);
+	return false
+}
+
+</script>
+
+<script> // data
+
+var datainput; //dictionary choice
+var wordlist = new Array (); //xml
+var wordlistlength;
+var indexcount; //place in xml array, chooses word!!!!
+var currentword; //the word!!!!!!!!
+var wordlength; //wordlength
+var splicearray; //splices array
+
+//data
+function getdata()
+{
+	var kindChoiceNumber;
+	if (datainput == "fourword") //mine 0
+	{
+		kindChoiceNumber = 0;
+	}
+	else if (datainput == "standard") // 1
+	{
+		kindChoiceNumber = 1;
+	}
+	else if (datainput == "twoword") //mine 3
+	{
+		kindChoiceNumber = 2;
+	}
+	else if (datainput == "simple") // 4
+	{
+		kindChoiceNumber = 3;
+	}
+	else
+	{
+		kindChoiceNumber = 0;
+	}
+	var wordcount = 0;
+	for ( property in data01.dictionary[kindChoiceNumber].list){if(data01.dictionary[kindChoiceNumber].list.hasOwnProperty(property)){wordcount++;}}
+	for (i=0;i<wordcount;i++)
+	{
+		wordlist[i] = data01.dictionary[kindChoiceNumber].list[i].root;
+	}
+	return false;
+}
+
+//word index
+function indexset ()
+{
+	if (indexcount > wordlistlength-1)
+	{
+		indexcount = 0;
+		currentword = wordlist[indexcount];
+	}
+	else
+	{
+		currentword = wordlist[indexcount];
+	}
+	wordlength = currentword.length;
+	return false;
+}
+
+//splices the word
+function lettersplicer ()
+{
+	splicearray = []; // reset
+	for (k=0; k<wordlength; k++)
+	{
+		splicearray[k] = currentword.substring(k,k+1);
+	}
+	return false;
+}
+
+</script>
+
+<script> // writer
+
+var CorrectWordArray = new Array ();
+
+/*
+Array.prototype.clear = function() {
+    this.splice(0, this.length);
+};
+*/
+
+function writer ()
+{
+	//data
+	var splicedata = "";
+	var spliceholder = new Array();
+	var splicedataarrayscramble = new Array();
+	var scramblewriter = "";
+	CorrectWordArray = [];
+	CorrectWordArray.length = 0;
+	
+	//write:pic
+	$(".mainpic p").html("<img src='../pic/master/"+currentword+".jpg'>");
+	
+	//top & bottom word
+	for (i=0;i<wordlength;i++)
+	{
+		splicedata += "<li id='"+i+"' class='clicked'>"+ splicearray[i] +"</li>";
+		CorrectWordArray[i] =  splicearray[i];
+		splicedataarrayscramble[i] = "<li id='"+i+"' class='clicked'>"+splicearray[i]+"</li>";
+	}
+	
+	//write
+	$(".topwrite").html(splicedata);
+	
+	if (scrambleset == 0)
+	{
+		$(".bottomwrite").html(splicedata);
+	}
+	
+	else if (scrambleset == 1)
+	{
+		splicedataarrayscramble = splicedataarrayscramble.sort(function() {return 0.5 - Math.random()});
+		for (j=0;j<wordlength;j++)
+		{
+			scramblewriter += splicedataarrayscramble[j];
+		}
+		$(".bottomwrite").html(scramblewriter);
+	}
+		
+	//cleaner
+	splicedata = null;
+	spliceholder = null;
+	splicedataarrayscramble = null;
+	scramblewriter = null;
+	splicedata = null;
+
+	return false;
+}
+
+</script>
+
+<script> // view set and data manimulation
+
+var scrambleset = 0;
+	
+function scramblemeaction ()
+{
+	if (scrambleset == 0)
+	{
+		scrambleset = 1;
+		scrambleswitch = 1;
+		$(".scramblebutton").css("color","white");
+		scramblereset ();
+	}
+	
+	else if (scrambleset == 1)
+	{
+		scrambleset = 0;
+		scrambleswitch = 0;
+		$(".scramblebutton").css("color","black");
+		scramblereset ();	
+	}
+	return false;
+}
+
+function scramblereset ()
+{
+	$(".topwrite").empty();
+	$(".bottomwrite").empty();
+	indexset ();
+	lettersplicer ();
+	writer ();
+	view ();
+	clickcount = 0; //counter: next word
+	clickid = 0; //match: top-bottom
+	return false;
+}
+	
+//centers letters
+function view ()
+{
+	var topmarginset = ((600-(wordlength*60))/2);
+	$(".topword h1 ul").css("margin-left",topmarginset);
+	var bottommarginset = ((600-(wordlength*66))/2)-2.5;
+	$(".clickletter h1 ul ").css("margin-left",bottommarginset);
+	topmarginset = null;
+	bottommarginset = null;
+	return false;
+}
+	
+</script>
+
+<script> //action
+
+var clickid;
+var clickcount;
+var scrambleswitch = 0;
+var soundx2 = 0;
+
+function clickaction ()
+{
+	//sound
+	if (soundset == 1)
+	{
+
+		if (devicecheck == 1)
+		{
+			//pt1
+			if (soundx2 == 0)
+			{
+				var srctemp = $(this).html()	
+				grape = new Media ("../audio/master/abc/"+srctemp+".m4a");
+				grape.play();
+				soundx2 = 1;
+				setTimeout(function()
+				{
+					grape.release();
+					grape = null;
+					srctemp = null;
+					return false;
+				},2000);
+			}
+			
+			//pt2
+			else if (soundx2 == 1)
+			{
+				var srctemp1 = $(this).html()	
+				grape1 = new Media ("../audio/master/abc/"+srctemp1+".m4a");
+				grape1.play();
+				soundx2 = 2;
+				setTimeout(function()
+				{
+					grape1.release();
+					grape1 = null;
+					srctemp1 = null;
+					return false;
+				},2000);
+			}
+			
+			//pt3
+			else if (soundx2 == 2)
+			{
+				var srctemp2 = $(this).html()	
+				grape2 = new Media ("../audio/master/abc/"+srctemp2+".m4a");
+				grape2.play();
+				soundx2 = 3;
+				setTimeout(function()
+				{
+					grape2.release();
+					grape2 = null;
+					srctemp2 = null;
+					return false;
+				},2000);
+			}
+			
+			//pt4
+			else if (soundx2 == 3)
+			{
+				var srctemp3 = $(this).html()	
+				grape3 = new Media ("../audio/master/abc/"+srctemp3+".m4a");
+				grape3.play();
+				soundx2 = 0;
+				setTimeout(function()
+				{
+					grape3.release();
+					grape3 = null;
+					srctemp3 = null;
+					return false;
+				},2000);
+			}
+			
+		} //if device check
+		else if (devicecheck == 0)
+		{
+			var srctemp4 = $(this).html()	
+			var soundpic1 = new Audio("../audio/master/abc/"+srctemp4+".m4a");
+			soundpic1.play();
+			setTimeout(function()
+			{
+			//	soundpic1.release();
+				soundpic1 = null;
+				srctemp = null;
+				return false;
+			}, 800);
+		}
+	}//sound
+	
+	var currentletter;
+	currentletter = "";
+	
+	//data:check and remove class
+	clickid = $(this).attr("id");		
+	currentletter = $(this, "p").text();
+	currentletter = $.trim(currentletter);
+	//$(".menumatch").html(currentletter);
+	
+	//control:order
+	if (clickcount == clickid && scrambleswitch != 1)
+	{
+		//data 
+		var countcheck = "";
+		countcheck = $(this).attr("class");
+		if (countcheck == "clicked") clickcount ++;
+		$(this).removeClass("clicked");
+
+		//cleaner
+		countcheck = null;
+
+		//view
+		$(this).css("color","transparent");
+		$(this).css("background","rgba(0,0,0,.4)");
+		$(".topwrite li:eq("+clickid+")").css("color","black");
+	}
+	else if (scrambleswitch == 1 && currentletter == CorrectWordArray[clickcount] )
+	{
+		//data 
+		var countcheck = "";
+		countcheck = $(this).attr("class");
+		if (countcheck == "clicked") clickcount ++;
+		$(this).removeClass("clicked");
+
+		//cleaner
+		countcheck = null;
+
+		//view
+		$(this).css("color","transparent");
+		$(this).css("background","rgba(0,0,0,.4)");
+		$(".topwrite li:eq("+(clickcount-1)+")").css("color","black");
+	}
+	
+	//finish
+	if (clickcount == wordlength)
+	{
+		//action
+		$(".bottomwrite li").die(interaction,clickaction);
+		thescore ();
+	
+		//sound
+		if (soundset == 1)
+		{
+			setTimeout(function()
+			{
+				var tempaudio;
+				tempaudio = $("p",this).html();
+
+				if (devicecheck == 1)
+				{
+					tangerine = new Media ("../audio/master/"+currentword+".m4a");
+					tangerine.play();
+
+					setTimeout(function()
+					{
+						tangerine.release();
+						tangerine = null;
+						return false;
+					},2000);
+				}
+				else if (devicecheck == 0)
+				{
+					var soundpic3 = new Audio("../audio/master/"+currentword+".m4a");
+					soundpic3.play();
+
+					setTimeout(function()
+					{
+				//		soundpic3.release();
+						soundpic3 = null;
+						return false;
+					}, 800);
+				}
+			},800);
+		}//sound
+	
+		setTimeout(function()
+		{
+			//action
+			$(".bottomwrite li").live(interaction,clickaction);
+		
+			if (scrambleswitch == 0)
+			{
+				scrambleswitch = 1;
+				scramblemeaction ();
+			}
+			else
+			{
+				scrambleswitch = 0;
+				scramblemeaction ();
+				nextfromaction();
+			}
+		
+			return false;
+		}, 2200);	
+	}
+		
+	return false;
+}
+
+</script>
+
+<script> // navigation simple
+
+function nextfromaction ()
+{
+	//data clear!!!
+	$(".topwrite").empty();
+	$(".bottomwrite").empty();
+	indexcount = indexcount + 1; //set
+	indexset ();
+	lettersplicer ();
+	writer ();
+	view ();
+	clickcount = 0; //counter: next word
+	clickid = 0; //match: top-bottom
+	
+	return false;
+}
+
+</script>
+
+<script> // pageload
+
+$(document).ready(function()
+{
+	$(".lettermenuholder").hide();
+	$(".wordholder").hide();
+	$(".outerpicbox").hide();
+	$(".topbarmatch").hide();
+	
+	//action
+	$(".scramblebutton").on("mousedown", scramblemeaction);
+	$(".bottomwrite li").live(interaction, clickaction);
+
+	//index menu
+	$(".standardvocab").on("mousedown",menu01);
+	$(".simplevocab").on("mousedown",menu02);
+	$(".menumatch").on("mousedown", tomenubutton);
+	$(".dictionarybutton").on(interaction, dictionaryaction) //!!!
+
+	return false;
+})
+
+</script>
+
+<script> // input menu action
+
+var menutype;
+var dictionaryswitch;
+
+//localstorage
+	dictionaryswitch = localStorage.dictionarystorage;
+	if (localStorage.dictionarystorage == "dic1")
+	{
+		$("#dic1").removeClass('dictionaryactivechange');
+		$("#dic0").addClass('dictionaryactivechange');
+	}
+
+function dictionaryaction ()
+{
+	$(".dictionarychoice p").addClass('dictionaryactivechange');
+	$(this).removeClass('dictionaryactivechange');
+	dictionaryswitch = $(this).attr('id');
+	localStorage.dictionarystorage = dictionaryswitch;
+	return false;
+}
+
+function menushrink ()
+{
+	$(".lettermenuholder").show()
+	$(".wordholder").show()
+	$(".outerpicbox").show()
+	$(".topbarmatch").show()
+	$(".inputmenu").hide()
+	
+	getdata()
+
+	indexcount = 0; //set
+	indexset ()
+	lettersplicer ()
+	writer ()
+	view ()
+	clickcount = 0; //counter: next word
+	clickid = 0; //match: top-bottom
+	doTimerActive()
+	
+	//book
+	booksetdata();
+	
+	return false;
+}
+
+function menu01()
+{
+	if (dictionaryswitch == "dic1")
+	{
+		datainput = "standard";
+	}
+	else
+	{
+		datainput = "fourword";
+	}
+	menutype = 1;
+	modmult = 4;
+	menushrink ();
+	return false;
+}
+
+function menu02()
+{	
+	if (dictionaryswitch == "dic1")
+	{
+		datainput = "simple";
+	}
+	else
+	{
+		datainput = "twoword";
+	}
+	menutype = 2;
+	modmult = 4;
+	menushrink ();
+	return false;
+}
+
+function tomenubutton ()
+{
+	$(".lettermenuholder").hide();
+	$(".wordholder").hide();
+	$(".outerpicbox").hide();
+	$(".topbarmatch").hide();
+	$(".inputmenu").show();
+	stopActive();
+	return false;
+}
+
+</script>
+
+<script> // window
+
+//interactionevent
+var interaction;
+
+// touchstart
+if ("ontouchstart" in document.documentElement)
+{
+	interaction = "touchstart";
+}
+else
+{
+	interaction = "mousedown";
+}
+
+$(document).ready(function()
+{
+	document.addEventListener(
+	  'touchmove',
+	  function(e) {
+	    e.preventDefault();
+	  },
+	  false
+	);
+
+	window.addEventListener("load",function() 
+	{
+	  	setTimeout(function()
+		{
+	    	window.scrollTo(0, 1);
+			return false;
+	  }, 0);
+	});
+	
+//screen resize
+	var hellowidth;
+	hellowidth = $(window).width();
+	var helloheight;
+	helloheight = $(window).height(); 
+
+	if (hellowidth > 960)
+	{
+		var padmath = (hellowidth - 960)/2;
+		var padset = padmath+"px";
+		$('body').css("padding-left", padset);
+	}
+
+	if (helloheight > 650)
+	{
+		var padheightmath = (helloheight - 650)/2;
+		var padheightset = padheightmath+"px";
+		$('body').css("padding-top", padheightset);
+	}
+	padheightset = null;
+	padheightmath = null;
+	helloheight = null;
+	hellowidth = null;
+	padmath = null;
+	padset = null;
+	return false;
+});
+</script>
+
+<script> // lettermenu
+
+function lettermenushortcut ()
+{
+	indexset ()
+	lettersplicer ()
+	writer ()
+	view ()
+	clickcount = 0; //counter: next word
+	clickid = 0; //match: top-bottom
+	scrambleswitch = 0;
+	return false;
+}
+
+function menuaction01()
+{	
+	if (menutype == 2)
+	{
+		indexcount = lmp1*2;	
+	}
+	else
+	{
+		indexcount = lmp1*4; //set
+	}
+	lettermenushortcut ();
+	return false;	
+}
+
+function menuaction02()
+{
+	if (menutype == 2)
+	{
+		indexcount = lmp2*2;	
+	}
+	
+	else
+	{
+		indexcount = lmp2*4; //set
+	}			
+	lettermenushortcut ();
+	return false;
+}
+
+function menuaction03()
+{
+	if (menutype == 2)
+	{
+		indexcount = lmp3*2;	
+	}
+	
+	else
+	{
+		indexcount = lmp3*4; //set
+	}
+	lettermenushortcut ();
+	return false
+}
+
+function menuaction04()
+{
+	if (menutype == 2)
+	{
+		indexcount = lmp4*2;	
+	}
+	
+	else
+	{
+		indexcount = lmp4*4; //set
+	}
+	lettermenushortcut ();
+	return false;
+}
+
+</script>
+
+<script> //sound
+
+var soundset = 0;
+var soundx1 = 0;
+
+$(window).load(function ()
+{	
+	appsoundswitch = localStorage.soundswitch; 
+	
+	if (appsoundswitch == 1)
+	{
+		$(".mainpic").on(interaction, pic1sound);
+		$(".topwrite").on(interaction, pic1sound);
+		soundset = 1;
+
+		setTimeout(function()
+		{
+			soundtest ();	
+			return false;
+		}, 300);
+
+		$(".soundselect").addClass('redhighlight');
+	}
+	
+	$(".soundselect").on("mousedown", soundpower);
+	return false;
+}); //end ready
+
+function soundtest ()
+{
+	if (devicecheck == 1)
+	{
+		var test = new Media ("../audio/master/atestsound.m4a");
+		test.play();
+		setTimeout(function()
+		{
+			test.release();
+			test = null;
+			return false;
+		},2000);
+	}	
+
+	else if (devicecheck == 0)
+	{
+		var test = new Audio ("../audio/master/atestsound.m4a");
+		test.play();
+		setTimeout(function()
+		{
+			test = null;
+			return false;
+		},2000);
+	}
+	return false;
+}
+
+function soundpower()
+{
+	if (soundset == 0)
+	{
+		$(".mainpic").on(interaction, pic1sound);
+		$(".topwrite").on(interaction, pic1sound);
+		soundset = 1;
+		soundtest ();
+		$(".soundselect").addClass('redhighlight')
+		localStorage.soundswitch = 1;
+	}
+
+	else if (soundset == 1)
+	{
+		$(".mainpic").off(interaction, pic1sound);
+		$(".topwrite").off(interaction, pic1sound);
+		soundset = 0;
+		$(".soundselect").removeClass('redhighlight')
+		localStorage.soundswitch = 0;
+	}
+	return false;
+}
+	
+//first word
+function pic1sound(event)
+{
+	if (devicecheck == 1)
+	{
+		
+		//pt1
+		if (soundx1 == 0)
+		{
+			potato = new Media ("../audio/master/"+currentword+".m4a");
+			potato.play();
+			soundx1 = 1;
+			setTimeout(function()
+			{
+				potato.release();
+				potato = null;
+				return false;
+			},2000);
+		}
+		
+		//pt2
+		else if (soundx1 == 1)
+		{
+			potato1 = new Media ("../audio/master/"+currentword+".m4a");
+			potato1.play();
+			soundx1 = 2;
+			setTimeout(function()
+			{
+				potato1.release();
+				potato1 = null;
+				return false;
+			},2000);
+		}
+	
+		//pt3
+		else if (soundx1 == 2)
+		{
+			potato2 = new Media ("../audio/master/"+currentword+".m4a");
+			potato2.play();
+			soundx1 = 0;
+			setTimeout(function()
+			{
+				potato2.release();
+				potato2 = null;
+				return false;
+			},2000);
+		}
+		
+	}// if device check
+	
+	else if (devicecheck == 0)
+	{
+		var soundpic4 = new Audio("../audio/master/"+currentword+".m4a");
+		soundpic4.play();
+	
+		setTimeout(function()
+		{
+		//	soundpic4.release();
+			soundpic4 = null;
+			return false;
+		}, 800);
+	}	
+	return false;
+}
+
+</script>
+
+<script> //book mode
+
+var modmult;
+
+$(document).ready(function()
+{
+	//switch
+	if (localStorage.bookswitchsave == "yes" && (localStorage.bookpagestorage) != "undefined" && (localStorage.bookdatastorage !='undefined'))
+	{
+		$(".bookselect").addClass('redhighlight');
+		$(".globalletterlist ul li:eq("+Number(localStorage.bookpagestorage)+")").addClass('globalletterlistcurrent');
+		bookpageloadbypass();	
+	}
+	//action
+	$(".bookselect").on("mousedown", bookpower);
+	
+	return false;	
+});
+
+function bookpageloadbypass()
+{
+	//data
+	datainput = localStorage.bookdatastorage;
+//	indexcount = Number(localStorage.bookpagestorage);
+	
+	//data
+	if (datainput == "simple" || datainput == "twoword")
+	{
+		menutype = 2;
+		modmult = 2;
+	}
+	
+	else if (datainput == "standard" || datainput == "fourword")
+	{
+		menutype = 1;
+		modmult = 4;
+	}
+
+	$(".lettermenuholder").show()
+	$(".wordholder").show()
+	$(".outerpicbox").show()
+	$(".topbarmatch").show()
+	$(".inputmenu").hide()
+	
+	getdata()
+
+	indexcount = Number(localStorage.bookpagestorage)*modmult;
+	
+	indexset ()
+	lettersplicer ()
+	writer ()
+	view ()
+	clickcount = 0; //counter: next word
+	clickid = 0; //match: top-bottom
+	scrambleswitch = 0;
+	return false;
+	
+	return false;
+}
+
+</script>
+
+</html>

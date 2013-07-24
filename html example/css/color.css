@@ -1,0 +1,928 @@
+.blue {background: blue;}
+
+.white {background: white;}
+
+.green {background: green;}
+
+.yellow {background: yellow;}
+
+.cyan {background: cyan;}
+
+.black {background: black;}
+
+.navy {background: navy;}
+
+.red {background: red;}
+
+.maroon {background: maroon;}
+
+.orange {background: orange;}
+
+.pink {	background: pink;}
+
+.limegreen {background: limegreen;}
+
+.olive {background: olive;}
+
+.teal {	background: teal;}
+
+.steelblue {background: steelblue;}
+
+.powderblue {background: powderblue;}
+
+.khaki {background: khaki;}
+
+.peachpuff {background: peachpuff;}
+
+.tomato {background: tomato;}
+
+.silver {background: silver;}
+
+.tan {background: tan;}
+
+.brown {background: brown;}
+
+.wheat {background: wheat;}
+
+.goldenrod {background: goldenrod;}
+
+.saddlebrown {background: saddlebrown;}
+
+.yellowgreen {background: yellowgreen;}
+
+.purple {background: purple;}
+
+.violet {background: violet;}
+
+.lightblue{background: rgba(100,100,250,.4);}
+
+.lightred {background: rgba(250,100,100,.4);}
+
+.lightgreen {background: rgba(100,250,100,.4);}
+
+.lightpurple {background: rgba(250,100,250,.4);}
+
+.lightyellow {background: rgba(250,250,100,.4);}
+
+.lightorange {background: rgba(250,175,100,.4);}
+
+.lightpink {background: rgba(250,100,175,.4);}
+
+.lightblack {background: rgba(0,0,0,.4)}
+
+.lightwhite {background: rgba(255,255,255,.4)}
+
+.lightbabyblue {background:rgba(0, 191, 255,.4)}
+
+.lightdarkpurple {background:rgba(147, 112, 219,.4)}
+
+.lightdarkgreen {background:rgba(0,100,0,.4)}
+
+.lightgold {background: rgba(255, 215, 0,.4)}
+
+.lightivory {background:rgba(255,255,240,.4);}
+
+.lightaliceblue {background:rgba(240,248,255,.4);}
+
+.lightlavender {background:rgba(230,230,250,.4);}
+
+.lightlightyellow {background:rgba(255,255,224,.4);}
+  
+.lightviolet {background:rgba(238,130,238,.4);}
+
+.fontfavgrey {color:#888}
+
+.fontpurple {color: purple;}
+
+.fontviolet {color: violet;}
+
+.fontblue {color: blue;}
+
+.fontwhite {color: white;}
+
+.fontgreen {color: green;}
+
+.fontyellow {color: yellow;}
+
+.fontcyan {color: cyan;}
+
+.fontblack {color: black;}
+
+.fontnavy {color: navy;}
+
+.fontred {color: red;}
+
+.fontmaroon {color: maroon;}
+
+.fontorange {color: orange;}
+
+.fontpink {color: pink;}
+
+.fontlimegreen {color: limegreen;}
+
+.fontolive {color: olive;}
+
+.fontteal {color: teal;}
+
+.fontsteelblue {color: steelblue;}
+
+.fontpowderblue {color: powderblue;}
+
+.fontdodgerblue {color: dodgerblue;}
+
+.fontkhaki {color: khaki;}
+
+.fontpeachpuff {color: peachpuff;}
+
+.fonttomato {color: tomato;}
+
+.fontsilver {color: silver;}
+
+.fonttan {color: tan;}
+
+.fontbrown {color: brown;}
+
+.fontwheat {color: wheat;}
+
+.fontgoldenrod {color: goldenrod;}
+
+.fontsaddlebrown {color: saddlebrown;}
+
+.fontyellowgreen {color: yellowgreen;}
+
+.violeteye 
+{
+	background: purple;
+	background: linear-gradient(cyan, purple);
+	background: -webkit-gradient(linear, 88 90, 100, 88 90, 0, from(cyan), to(purple));
+	background: -webkit-linear-gradient(cyan, purple);
+	background: -moz-linear-gradient(cyan, purple);
+	background: -o-linear-gradient(cyan, purple);
+	background: -ms-linear-gradient(cyan, purple);
+}
+
+.violetglow 
+{
+	background: #550080;
+	background: linear-gradient(#DB70FF, #550080);
+	background: -webkit-gradient(linear, left top, left bottom, from(#DB70FF), to(#550080));
+	background: -webkit-linear-gradient(#DB70FF, #550080);
+	background: -moz-linear-gradient(#DB70FF, #550080);
+	background: -o-linear-gradient(#DB70FF, #550080);
+	background: -ms-linear-gradient(#DB70FF, #550080);
+}
+
+.hal
+{
+	background: maroon;
+	background: linear-gradient(red, #000);
+	background: -webkit-gradient(linear, left top, left bottom, from(red), to(black));
+	background: -webkit-linear-gradient(red, #000);
+	background: -moz-linear-gradient(red, #000);
+	background: -o-linear-gradient(red, #000);
+	background: -ms-linear-gradient(red, #000);
+}
+
+.redeye 
+{
+	background: red;
+	background: linear-gradient(pink, red);
+	background: -webkit-gradient(linear, left top, left bottom, from(pink]), to(red));
+	background: -webkit-linear-gradient(pink, red);
+	background: -moz-linear-gradient(pink, red);
+	background: -o-linear-gradient(pink, red);
+	background: -ms-linear-gradient(pink, red);
+}
+
+.redglow
+{
+	background: red;
+	background: linear-gradient(tomato, red);
+	background: -webkit-gradient(linear, left top, left bottom, from(tomato), to(red));
+	background: -webkit-linear-gradient(tomato, red);
+	background: -moz-linear-gradient(tomato, red);
+	background: -o-linear-gradient(tomato, red);
+	background: -ms-linear-gradient(tomato, red);
+}
+
+.darkredglow 
+{
+	background: darkred;
+	background: linear-gradient(crimson, darkred);
+	background: -webkit-gradient(linear, left top, left bottom, from(crimson), to(darkred));
+	background: -webkit-linear-gradient(crimson, darkred);
+	background: -moz-linear-gradient(crimson, darkred);
+	background: -o-linear-gradient(crimson, darkred);
+	background: -ms-linear-gradient(crimson, darkred);
+}
+
+.lightsalmonglow
+{
+	background: lightsalmon;
+	background: linear-gradient(lightcoral, lightsalmon);
+	background: -webkit-gradient(linear, left top, left bottom, from(lightcoral), to(lightsalmon));
+	background: -webkit-linear-gradient(lightcoral, lightsalmon);
+	background: -moz-linear-gradient(lightcoral, lightsalmon);
+	background: -o-linear-gradient(lightcoral, lightsalmon);
+	background: -ms-linear-gradient(lightcoral, lightsalmon);
+}
+
+.indianredglow
+{
+	background: indianred;
+	background: linear-gradient(coral, indianred);
+	background: -webkit-gradient(linear, left top, left bottom, from(coral), to(indianred));
+	background: -webkit-linear-gradient(coral, indianred);
+	background: -moz-linear-gradient(coral, indianred);
+	background: -o-linear-gradient(coral, indianred);
+	background: -ms-linear-gradient(coral, indianred);
+}
+
+.goldblackglow
+{
+	background: gold;
+	background: linear-gradient(gold, black);
+	background: -webkit-gradient(linear, left top, left bottom, from(gold), to(black));
+	background: -webkit-linear-gradient(gold, black);
+	background: -moz-linear-gradient(gold, black);
+	background: -o-linear-gradient(gold, black);
+	background: -ms-linear-gradient(gold, black);
+}
+
+.yellowglow 
+{
+	background: gold;
+	background: linear-gradient(lemonchiffon, yellow);
+	background: -webkit-gradient(linear, left top, left bottom, from(lemonchiffon), to(yellow));
+	background: -webkit-linear-gradient(lemonchiffon, yellow);
+	background: -moz-linear-gradient(lemonchiffon, yellow);
+	background: -o-linear-gradient(lemonchiffon, yellow);
+	background: -ms-linear-gradient(lemonchiffon, yellow);
+}
+
+.greenglow 
+{
+	background: #183D00;
+	background: linear-gradient(#5AE000, #183D00);
+	background: -webkit-gradient(linear, left top, left bottom, from(#5AE000), to(#183D00));
+	background: -webkit-linear-gradient(#5AE000, #183D00);
+	background: -moz-linear-gradient(#5AE000, #183D00);
+	background: -o-linear-gradient(#5AE000, #183D00);
+	background: -ms-linear-gradient(#5AE000, #183D00);
+}
+
+.darkgreenglow
+{
+	background: #183D00;
+	background: linear-gradient(#183D00, black);
+	background: -webkit-gradient(linear, left top, left bottom, from(#183D00), to(black));
+	background: -webkit-linear-gradient(#183D00, black);
+	background: -moz-linear-gradient(#183D00, black);
+	background: -o-linear-gradient(#183D00, black);
+	background: -ms-linear-gradient(#183D00, black);
+}
+
+.darkorangeglow 
+{
+	background: orange;
+	background: linear-gradient(orange, darkorange);
+	background: -webkit-gradient(linear, left top, left bottom, from(orange), to(darkorange));
+	background: -webkit-linear-gradient(orange, darkorange);
+	background: -moz-linear-gradient(orange, darkorange);
+	background: -o-linear-gradient(orange, darkorange);
+	background: -ms-linear-gradient(orange, darkorange);
+}
+
+.goldglow
+{
+	background: gold;
+	background: linear-gradient(gold, orange);
+	background: -webkit-gradient(linear, left top, left bottom, from(gold), to(orange));
+	background: -webkit-linear-gradient(gold, orange);
+	background: -moz-linear-gradient(gold, orange);
+	background: -o-linear-gradient(gold, orange);
+	background: -ms-linear-gradient(gold, orange);
+}
+
+.orangeglow
+{
+	background: orange;
+	background: linear-gradient(yellow, orange);
+	background: -webkit-gradient(linear, left top, left bottom, from(yellow), to(orange));
+	background: -webkit-linear-gradient(yellow, orange);
+	background: -moz-linear-gradient(yellow, orange);
+	background: -o-linear-gradient(yellow, orange);
+	background: -ms-linear-gradient(yellow, orange);
+}
+
+
+.sea 
+{
+	background: blue;
+	background: linear-gradient(cyan, blue);
+	background: -webkit-gradient(linear, left top, left bottom, from(cyan), to(blue));
+	background: -webkit-linear-gradient(cyan, blue);
+	background: -moz-linear-gradient(cyan, blue);
+	background: -o-linear-gradient(cyan, blue);
+	background: -ms-linear-gradient(cyan, blue);	
+}
+
+.iron 
+{
+	background: maroon;
+	background: linear-gradient(red, maroon);
+	background: -webkit-gradient(linear, left top, left bottom, from(red), to(maroon));
+	background: -webkit-linear-gradient(red, maroon);
+	background: -moz-linear-gradient(red, maroon);
+	background: -o-linear-gradient(red, maroon);
+	background: -ms-linear-gradient(red, maroon);
+	
+}
+
+.blueglow 
+{
+	background: navy;
+	background: linear-gradient(blue, #000);
+	background: -webkit-gradient(linear, left top, left bottom, from(blue), to(black));
+	background: -webkit-linear-gradient(blue, #000);
+	background: -moz-linear-gradient(blue, #000);
+	background: -o-linear-gradient(blue, #000);
+	background: -ms-linear-gradient(blue, #000);
+}
+
+.pinkglow 
+{
+	background: pink;
+	background: linear-gradient(#FAB8FF, #FF05E6);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FAB8FF), to(#FF05E6));
+	background: -webkit-linear-gradient(#FAB8FF, #FF05E6);
+	background: -moz-linear-gradient(#FAB8FF, #FF05E6);
+	background: -o-linear-gradient(#FAB8FF, #FF05E6);
+	background: -ms-linear-gradient(#FAB8FF, #FF05E6);
+}
+
+.cyanglow 
+{
+	background: cyan;
+	background: linear-gradient(cyan, #000);
+	background: -webkit-gradient(linear, left top, left bottom, from(cyan), to(#000));
+	background: -webkit-linear-gradient(cyan, #000);
+	background: -moz-linear-gradient(cyan, #000);
+	background: -o-linear-gradient(cyan, #000);
+	background: -ms-linear-gradient(cyan, #000);
+}
+
+.whiteglow 
+{
+	background: #fff;
+	background: linear-gradient(white, silver);
+	background: -webkit-gradient(linear, left top, left bottom, from(white), to(silver));
+	background: -webkit-linear-gradient(white, silver);
+	background: -moz-linear-gradient(white, silver);
+	background: -o-linear-gradient(white, silver);
+	background: -ms-linear-gradient(white, silver);
+}
+
+.greyglow 
+{
+	background: #ccc;
+	background: linear-gradient(silver, darkgrey);
+	background: -webkit-gradient(linear, left top, left bottom, from(silver), to(darkgrey));
+	background: -webkit-linear-gradient(silver, darkgrey);
+	background: -moz-linear-gradient(silver, darkgrey);
+	background: -o-linear-gradient(silver, darkgrey);
+	background: -ms-linear-gradient(silver, darkgrey);
+}
+
+.darkgreyglow 
+{
+	background: #aaa;
+	background: linear-gradient(darkgrey, grey);
+	background: -webkit-gradient(linear, left top, left bottom, from(darkgrey), to(grey));
+	background: -webkit-linear-gradient(darkgrey, grey);
+	background: -moz-linear-gradient(darkgrey, grey);
+	background: -o-linear-gradient(darkgrey, grey);
+	background: -ms-linear-gradient(darkgrey, grey);
+}
+
+.dimgreyglow 
+{
+	background: #555;
+	background: linear-gradient(grey, dimgrey);
+	background: -webkit-gradient(linear, left top, left bottom, from(grey), to(dimgrey));
+	background: -webkit-linear-gradient(grey, dimgrey);
+	background: -moz-linear-gradient(grey, dimgrey);
+	background: -o-linear-gradient(grey, dimgrey);
+	background: -ms-linear-gradient(grey, dimgrey);
+}
+
+
+.blackglow
+{
+	background: #222;
+	background: linear-gradient(dimgray, black);
+	background: -webkit-gradient(linear, left top, left bottom, from(dimgray), to(black));
+	background: -webkit-linear-gradient(dimgray, black);
+	background: -moz-linear-gradient(dimgray, black);
+	background: -o-linear-gradient(dimgray, black);
+	background: -ms-linear-gradient(dimgray, black);
+}
+
+.purpleye 
+{
+	background: #FFFEC2;
+	background: linear-gradient(#8100D6, #FFFEC2);
+	background: -webkit-gradient(linear, left top, left bottom, from(#8100D6), to(#FFFEC2));
+	background: -webkit-linear-gradient(#8100D6, #FFFEC2);
+	background: -moz-linear-gradient(#8100D6, #FFFEC2);
+	background: -o-linear-gradient(#8100D6, #FFFEC2);
+	background: -ms-linear-gradient(#8100D6, #FFFEC2);
+}
+
+.brownglow 
+{
+	background: saddlebrown;
+	background: linear-gradient(tan, saddlebrown);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(tan), to(saddlebrown));
+	background: -webkit-linear-gradient(tan, saddlebrown);
+	background: -moz-linear-gradient(tan, saddlebrown);
+	background: -o-linear-gradient(tan, saddlebrown);
+	background: -ms-linear-gradient(tan, saddlebrown);
+}
+
+.tealglow 
+{
+	background: teal;
+	background: linear-gradient(aqua, teal);
+	background: -webkit-gradient(linear, left top, left bottom, from(aqua), to(teal));
+	background: -webkit-linear-gradient(aqua, teal);
+	background: -moz-linear-gradient(aqua, teal);
+	background: -o-linear-gradient(aqua, teal);
+	background: -ms-linear-gradient(aqua, teal);
+}
+
+.orangeblack
+{
+		background: orangered;
+		background: linear-gradient(orangered, black);
+		background: -webkit-gradient(linear, left top, left bottom, from(darkorange), to(black));
+		background: -webkit-linear-gradient(orangered, black);
+		background: -moz-linear-gradient(orangered, black);
+		background: -o-linear-gradient(orangered, black);
+		background: -ms-linear-gradient(orangered, black);
+}
+
+.pearsimon 
+{
+	background: orangered;
+	background: linear-gradient(darkorange, orangered);
+	background: -webkit-gradient(linear, left top, left bottom, from(darkorange), to(orangered));
+	background: -webkit-linear-gradient(darkorange, orangered);
+	background: -moz-linear-gradient(darkorange, orangered);
+	background: -o-linear-gradient(darkorange, orangered);
+	background: -ms-linear-gradient(darkorange, orangered);
+}
+
+.khakiglow
+{
+	background: khaki;
+	background: linear-gradient(lightyellow, khaki);
+	background: -webkit-gradient(linear, left top, left bottom, from(lightyellow), to(khaki));
+	background: -webkit-linear-gradient(lightyellow, khaki);
+	background: -moz-linear-gradient(lightyellow, khaki);
+	background: -o-linear-gradient(lightyellow, khaki);
+	background: -ms-linear-gradient(lightyellow, khaki);
+}
+
+.dodgerblueglow
+{
+	background: dodgerblue;
+	background: linear-gradient(skyblue, dodgerblue);
+	background: -webkit-gradient(linear, left top, left bottom, from(skyblue), to(dodgerblue));
+	background: -webkit-linear-gradient(skyblue, dodgerblue);
+	background: -moz-linear-gradient(skyblue, dodgerblue);
+	background: -o-linear-gradient(skyblue, dodgerblue);
+	background: -ms-linear-gradient(skyblue, dodgerblue);
+}
+
+.mediumblueglow
+{
+	background: mediumblue;
+	background: linear-gradient(deepskyblue, mediumblue);
+	background: -webkit-gradient(linear, left top, left bottom, from(deepskyblue), to(mediumblue));
+	background: -webkit-linear-gradient(deepskyblue, mediumblue);
+	background: -moz-linear-gradient(deepskyblue, mediumblue);
+	background: -o-linear-gradient(deepskyblue, mediumblue);
+	background: -ms-linear-gradient(deepskyblue, mediumblue);
+}
+
+.babyblue 
+{
+	background: lightsteelblue;
+	background: linear-gradient(powderblue, lightsteelblue);
+	background: -webkit-gradient(linear, left top, left bottom, from(powderblue), to(lightsteelblue));
+	background: -webkit-linear-gradient(powderblue, lightsteelblue);
+	background: -moz-linear-gradient(powderblue, lightsteelblue);
+	background: -o-linear-gradient(powderblue, lightsteelblue);
+	background: -ms-linear-gradient(powderblue, lightsteelblue);
+}
+
+
+.violeteyecircle
+{
+	background: purple;
+	background: radial-gradient(cyan, purple);
+	background: -webkit-gradient(radial, 88 90, 100, 88 90, 0, from(cyan), to(purple));
+	background: -webkit-radial-gradient(cyan, purple);
+	background: -moz-radial-gradient(cyan, purple);
+	background: -o-radial-gradient(cyan, purple);
+	background: -ms-radial-gradient(cyan, purple);
+}
+
+.violetglowcircle
+{
+	background: #550080;
+	background: radial-gradient(#DB70FF, #550080);
+	background: -webkit-gradient(radial, left top, left bottom, from(#DB70FF), to(#550080));
+	background: -webkit-radial-gradient(#DB70FF, #550080);
+	background: -moz-radial-gradient(#DB70FF, #550080);
+	background: -o-radial-gradient(#DB70FF, #550080);
+	background: -ms-radial-gradient(#DB70FF, #550080);
+}
+
+.halcircle
+{
+	background: maroon;
+	background: radial-gradient(red, #000);
+	background: -webkit-gradient(radial, left top, left bottom, from(red), to(black));
+	background: -webkit-radial-gradient(red, #000);
+	background: -moz-radial-gradient(red, #000);
+	background: -o-radial-gradient(red, #000);
+	background: -ms-radial-gradient(red, #000);
+}
+
+.redeyecircle
+{
+	background: red;
+	background: radial-gradient(pink, red);
+	background: -webkit-gradient(radial, left top, left bottom, from(pink]), to(red));
+	background: -webkit-radial-gradient(pink, red);
+	background: -moz-radial-gradient(pink, red);
+	background: -o-radial-gradient(pink, red);
+	background: -ms-radial-gradient(pink, red);
+}
+
+.redglowcircle
+{
+	background: red;
+	background: radial-gradient(tomato, red);
+	background: -webkit-gradient(radial, left top, left bottom, from(tomato), to(red));
+	background: -webkit-radial-gradient(tomato, red);
+	background: -moz-radial-gradient(tomato, red);
+	background: -o-radial-gradient(tomato, red);
+	background: -ms-radial-gradient(tomato, red);
+}
+
+.darkredglowcircle
+{
+	background: darkred;
+	background: radial-gradient(crimson, darkred);
+	background: -webkit-gradient(radial, left top, left bottom, from(crimson), to(darkred));
+	background: -webkit-radial-gradient(crimson, darkred);
+	background: -moz-radial-gradient(crimson, darkred);
+	background: -o-radial-gradient(crimson, darkred);
+	background: -ms-radial-gradient(crimson, darkred);
+}
+
+.lightsalmonglowcircle
+{
+	background: lightsalmon;
+	background: radial-gradient(lightcoral, lightsalmon);
+	background: -webkit-gradient(radial, left top, left bottom, from(lightcoral), to(lightsalmon));
+	background: -webkit-radial-gradient(lightcoral, lightsalmon);
+	background: -moz-radial-gradient(lightcoral, lightsalmon);
+	background: -o-radial-gradient(lightcoral, lightsalmon);
+	background: -ms-radial-gradient(lightcoral, lightsalmon);
+}
+
+.indianredglowcircle
+{
+	background: indianred;
+	background: radial-gradient(coral, indianred);
+	background: -webkit-gradient(radial, left top, left bottom, from(coral), to(indianred));
+	background: -webkit-radial-gradient(coral, indianred);
+	background: -moz-radial-gradient(coral, indianred);
+	background: -o-radial-gradient(coral, indianred);
+	background: -ms-radial-gradient(coral, indianred);
+}
+
+.goldblackglowcircle
+{
+	background: gold;
+	background: radial-gradient(gold, black);
+	background: -webkit-gradient(radial, left top, left bottom, from(gold), to(black));
+	background: -webkit-radial-gradient(gold, black);
+	background: -moz-radial-gradient(gold, black);
+	background: -o-radial-gradient(gold, black);
+	background: -ms-radial-gradient(gold, black);
+}
+
+.yellowglowcircle
+{
+	background: gold;
+	background: radial-gradient(lemonchiffon, yellow);
+	background: -webkit-gradient(radial, left top, left bottom, from(lemonchiffon), to(yellow));
+	background: -webkit-radial-gradient(lemonchiffon, yellow);
+	background: -moz-radial-gradient(lemonchiffon, yellow);
+	background: -o-radial-gradient(lemonchiffon, yellow);
+	background: -ms-radial-gradient(lemonchiffon, yellow);
+}
+
+.greenglowcircle 
+{
+	background: #183D00;
+	background: radial-gradient(#5AE000, #183D00);
+	background: -webkit-gradient(radial, left top, left bottom, from(#5AE000), to(#183D00));
+	background: -webkit-radial-gradient(#5AE000, #183D00);
+	background: -moz-radial-gradient(#5AE000, #183D00);
+	background: -o-radial-gradient(#5AE000, #183D00);
+	background: -ms-radial-gradient(#5AE000, #183D00);
+}
+
+.darkgreenglowcircle
+{
+	background: #183D00;
+	background: radial-gradient(#183D00, black);
+	background: -webkit-gradient(radial, left top, left bottom, from(#183D00), to(black));
+	background: -webkit-radial-gradient(#183D00, black);
+	background: -moz-radial-gradient(#183D00, black);
+	background: -o-radial-gradient(#183D00, black);
+	background: -ms-radial-gradient(#183D00, black);
+}
+
+.darkorangeglowcircle 
+{
+	background: orange;
+	background: radial-gradient(orange, darkorange);
+	background: -webkit-gradient(radial, left top, left bottom, from(orange), to(darkorange));
+	background: -webkit-radial-gradient(orange, darkorange);
+	background: -moz-radial-gradient(orange, darkorange);
+	background: -o-radial-gradient(orange, darkorange);
+	background: -ms-radial-gradient(orange, darkorange);
+}
+
+.goldglowcircle
+{
+	background: gold;
+	background: radial-gradient(gold, orange);
+	background: -webkit-gradient(radial, left top, left bottom, from(gold), to(orange));
+	background: -webkit-radial-gradient(gold, orange);
+	background: -moz-radial-gradient(gold, orange);
+	background: -o-radial-gradient(gold, orange);
+	background: -ms-radial-gradient(gold, orange);
+}
+
+.orangeglowcircle
+{
+	background: orange;
+	background: radial-gradient(yellow, orange);
+	background: -webkit-gradient(radial, left top, left bottom, from(yellow), to(orange));
+	background: -webkit-radial-gradient(yellow, orange);
+	background: -moz-radial-gradient(yellow, orange);
+	background: -o-radial-gradient(yellow, orange);
+	background: -ms-radial-gradient(yellow, orange);
+}
+
+.seacircle
+{
+	background: blue;
+	background: radial-gradient(cyan, blue);
+	background: -webkit-gradient(radial, left top, left bottom, from(cyan), to(blue));
+	background: -webkit-radial-gradient(cyan, blue);
+	background: -moz-radial-gradient(cyan, blue);
+	background: -o-radial-gradient(cyan, blue);
+	background: -ms-radial-gradient(cyan, blue);	
+}
+
+.ironcircle 
+{
+	background: maroon;
+	background: radial-gradient(red, maroon);
+	background: -webkit-gradient(radial, left top, left bottom, from(red), to(maroon));
+	background: -webkit-radial-gradient(red, maroon);
+	background: -moz-radial-gradient(red, maroon);
+	background: -o-radial-gradient(red, maroon);
+	background: -ms-radial-gradient(red, maroon);
+}
+
+.blueglowcircle 
+{
+	background: navy;
+	background: radial-gradient(blue, #000);
+	background: -webkit-gradient(radial, left top, left bottom, from(blue), to(black));
+	background: -webkit-radial-gradient(blue, #000);
+	background: -moz-radial-gradient(blue, #000);
+	background: -o-radial-gradient(blue, #000);
+	background: -ms-radial-gradient(blue, #000);
+}
+
+.pinkglowcircle 
+{
+	background: pink;
+	background: radial-gradient(#FAB8FF, #FF05E6);
+	background: -webkit-gradient(radial, left top, left bottom, from(#FAB8FF), to(#FF05E6));
+	background: -webkit-radial-gradient(#FAB8FF, #FF05E6);
+	background: -moz-radial-gradient(#FAB8FF, #FF05E6);
+	background: -o-radial-gradient(#FAB8FF, #FF05E6);
+	background: -ms-radial-gradient(#FAB8FF, #FF05E6);
+}
+
+.cyanglowcircle 
+{
+	background: cyan;
+	background: radial-gradient(cyan, #000);
+	background: -webkit-gradient(radial, left top, left bottom, from(cyan), to(#000));
+	background: -webkit-radial-gradient(cyan, #000);
+	background: -moz-radial-gradient(cyan, #000);
+	background: -o-radial-gradient(cyan, #000);
+	background: -ms-radial-gradient(cyan, #000);
+}
+
+.whiteglowcircle 
+{
+	background: #fff;
+	background: radial-gradient(white, silver);
+	background: -webkit-gradient(radial, left top, left bottom, from(white), to(silver));
+	background: -webkit-radial-gradient(white, silver);
+	background: -moz-radial-gradient(white, silver);
+	background: -o-radial-gradient(white, silver);
+	background: -ms-radial-gradient(white, silver);
+}
+
+.greyglowcircle 
+{
+	background: #ccc;
+	background: radial-gradient(silver, darkgrey);
+	background: -webkit-gradient(radial, left top, left bottom, from(silver), to(darkgrey));
+	background: -webkit-radial-gradient(silver, darkgrey);
+	background: -moz-radial-gradient(silver, darkgrey);
+	background: -o-radial-gradient(silver, darkgrey);
+	background: -ms-radial-gradient(silver, darkgrey);
+}
+
+.darkgreyglowcircle 
+{
+	background: #aaa;
+	background: radial-gradient(darkgrey, grey);
+	background: -webkit-gradient(radial, left top, left bottom, from(darkgrey), to(grey));
+	background: -webkit-radial-gradient(darkgrey, grey);
+	background: -moz-radial-gradient(darkgrey, grey);
+	background: -o-radial-gradient(darkgrey, grey);
+	background: -ms-radial-gradient(darkgrey, grey);
+}
+
+.dimgreyglowcircle 
+{
+	background: #555;
+	background: radial-gradient(grey, dimgrey);
+	background: -webkit-gradient(radial, left top, left bottom, from(grey), to(dimgrey));
+	background: -webkit-radial-gradient(grey, dimgrey);
+	background: -moz-radial-gradient(grey, dimgrey);
+	background: -o-radial-gradient(grey, dimgrey);
+	background: -ms-radial-gradient(grey, dimgrey);
+}
+
+
+.blackglowcircle
+{
+	background: #222;
+	background: radial-gradient(dimgray, black);
+	background: -webkit-gradient(radial, left top, left bottom, from(dimgray), to(black));
+	background: -webkit-radial-gradient(dimgray, black);
+	background: -moz-radial-gradient(dimgray, black);
+	background: -o-radial-gradient(dimgray, black);
+	background: -ms-radial-gradient(dimgray, black);
+}
+
+.purpleyecircle 
+{
+	background: #FFFEC2;
+	background: radial-gradient(#8100D6, #FFFEC2);
+	background: -webkit-gradient(radial, left top, left bottom, from(#8100D6), to(#FFFEC2));
+	background: -webkit-radial-gradient(#8100D6, #FFFEC2);
+	background: -moz-radial-gradient(#8100D6, #FFFEC2);
+	background: -o-radial-gradient(#8100D6, #FFFEC2);
+	background: -ms-radial-gradient(#8100D6, #FFFEC2);
+}
+
+.brownglowcircle 
+{
+	background: saddlebrown;
+	background: radial-gradient(tan, saddlebrown);
+	background-image: -webkit-gradient(radial, left top, left bottom, from(tan), to(saddlebrown));
+	background: -webkit-radial-gradient(tan, saddlebrown);
+	background: -moz-radial-gradient(tan, saddlebrown);
+	background: -o-radial-gradient(tan, saddlebrown);
+	background: -ms-radial-gradient(tan, saddlebrown);
+}
+
+.tealglowcircle 
+{
+	background: teal;
+	background: radial-gradient(aqua, teal);
+	background: -webkit-gradient(radial, left top, left bottom, from(aqua), to(teal));
+	background: -webkit-radial-gradient(aqua, teal);
+	background: -moz-radial-gradient(aqua, teal);
+	background: -o-radial-gradient(aqua, teal);
+	background: -ms-radial-gradient(aqua, teal);
+}
+
+.orangeblackcircle
+{
+		background: orangered;
+		background: radial-gradient(orangered, black);
+		background: -webkit-gradient(radial, left top, left bottom, from(darkorange), to(black));
+		background: -webkit-radial-gradient(orangered, black);
+		background: -moz-radial-gradient(orangered, black);
+		background: -o-radial-gradient(orangered, black);
+		background: -ms-radial-gradient(orangered, black);
+}
+
+.pearsimoncircle 
+{
+	background: orangered;
+	background: radial-gradient(darkorange, orangered);
+	background: -webkit-gradient(radial, left top, left bottom, from(darkorange), to(orangered));
+	background: -webkit-radial-gradient(darkorange, orangered);
+	background: -moz-radial-gradient(darkorange, orangered);
+	background: -o-radial-gradient(darkorange, orangered);
+	background: -ms-radial-gradient(darkorange, orangered);
+}
+
+.khakiglowcircle
+{
+	background: khaki;
+	background: radial-gradient(lightyellow, khaki);
+	background: -webkit-gradient(radial, left top, left bottom, from(lightyellow), to(khaki));
+	background: -webkit-radial-gradient(lightyellow, khaki);
+	background: -moz-radial-gradient(lightyellow, khaki);
+	background: -o-radial-gradient(lightyellow, khaki);
+	background: -ms-radial-gradient(lightyellow, khaki);
+}
+
+.dodgerblueglowcircle
+{
+	background: dodgerblue;
+	background: radial-gradient(skyblue, dodgerblue);
+	background: -webkit-gradient(radial, left top, left bottom, from(skyblue), to(dodgerblue));
+	background: -webkit-radial-gradient(skyblue, dodgerblue);
+	background: -moz-radial-gradient(skyblue, dodgerblue);
+	background: -o-radial-gradient(skyblue, dodgerblue);
+	background: -ms-radial-gradient(skyblue, dodgerblue);
+}
+
+.mediumblueglowcircle
+{
+	background: mediumblue;
+	background: radial-gradient(deepskyblue, mediumblue);
+	background: -webkit-gradient(radial, left top, left bottom, from(deepskyblue), to(mediumblue));
+	background: -webkit-radial-gradient(deepskyblue, mediumblue);
+	background: -moz-radial-gradient(deepskyblue, mediumblue);
+	background: -o-radial-gradient(deepskyblue, mediumblue);
+	background: -ms-radial-gradient(deepskyblue, mediumblue);
+}
+
+.babybluecircle 
+{
+	background: lightsteelblue;
+	background: radial-gradient(powderblue, lightsteelblue);
+	background: -webkit-gradient(radial, left top, left bottom, from(powderblue), to(lightsteelblue));
+	background: -webkit-radial-gradient(powderblue, lightsteelblue);
+	background: -moz-radial-gradient(powderblue, lightsteelblue);
+	background: -o-radial-gradient(powderblue, lightsteelblue);
+	background: -ms-radial-gradient(powderblue, lightsteelblue);
+}
+
+.myorange
+{
+	background: -webkit-linear-gradient(rgba(255,215,0,.8), rgba(255,69,0,.8));
+	background: -moz-linear-gradient(rgba(255,215,0,.8), rgba(255,69,0,.8));
+}
+
+.myyellow
+{
+	background: -webkit-linear-gradient(rgba(255,250,205,.8), rgba(255,215,0,.8));
+	background: -moz-linear-gradient(rgba(255,250,205,.8), rgba(255,215,0,.8));
+}
+
+.mygreen
+{
+	background: -webkit-linear-gradient(rgba(50,205,50,.8), rgba(0,128,0,.8));
+	background: -moz-linear-gradient(rgba(50,205,50,.8), rgba(0,128,0,.8));
+}
+
+.myblue
+{
+	background: -webkit-linear-gradient(rgba(70,130,180,.8), rgba(0,0,128,.8));
+	background: -moz-linear-gradient(rgba(70,130,180,.8), rgba(0,0,128,.8));
+}
