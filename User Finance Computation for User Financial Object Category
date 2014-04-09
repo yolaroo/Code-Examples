@@ -1,0 +1,351 @@
+
+////////
+// User Finance Computation for User Financial Object Category 
+///////
+
+#import "MyFoundation+UserFinanceComputation.h"
+#import "FinancialYear+Create.h"
+#import "ItemCategory+Create.h"
+
+@implementation MyFoundation (UserFinanceComputation)
+
+#define DK 2
+#define LOG if(DK == 1)
+
+#pragma mark - Single Compute
+
+- (void) singleUserFinancialComputations: (User*)myUser withContext: (NSManagedObjectContext*) myContext
+{
+    ItemType*emptyType = [ ItemType typeWithName:@"EMPTY_CATEGORY" inManagedObjectContext:self.managedObjectContext];
+    ItemCategory*emptyCategory = [ItemCategory categoryWithName:@"EMPTY_CATEGORY" inManagedObjectContext:self.managedObjectContext];
+
+    NSArray*myDatearray = [self yearsUserForFinance:myUser inManagedObjectContext:myContext];
+    for (NSNumber* myYear in myDatearray) {
+
+        FinancialYear* theFinancialData = [FinancialYear financialYearWithDateFromUser:myUser withCategory:emptyCategory withType:emptyType withYear:myYear inManagedObjectContext:self.managedObjectContext];
+        [self saveData];
+        [self setFinanceForUser:theFinancialData];
+    }
+}
+
+#pragma mark - Complete Financial Computation
+
+- (void) computeAllFinancialDataForUsers: (NSManagedObjectContext*)myContext
+{
+    NSLog(@"^^Users Computation Start^^");
+    
+    NSArray*CompleteUserArray = [self computeUsersAllForFinance:myContext];
+    LOG NSLog(@"Complete Array Count %lu",(unsigned long)[CompleteUserArray count]);
+    
+    ItemType*emptyType = [ ItemType typeWithName:@"EMPTY_CATEGORY" inManagedObjectContext:self.managedObjectContext];
+    ItemCategory*emptyCategory = [ItemCategory categoryWithName:@"EMPTY_CATEGORY" inManagedObjectContext:self.managedObjectContext];
+    
+    for (User* usr in CompleteUserArray){
+        NSArray*myDatearray = [self yearsUserForFinance:usr inManagedObjectContext:myContext];
+        for (NSNumber* myYear in myDatearray) {
+
+            FinancialYear* theFinancialData = [FinancialYear financialYearWithDateFromUser:usr withCategory:emptyCategory withType:emptyType withYear:myYear inManagedObjectContext:self.managedObjectContext];
+            [self saveData];
+            [self setFinanceForUser:theFinancialData];
+        }
+    }
+    NSLog(@"^^Users Computation End^^");
+}
+
+#pragma mark - Get All Users
+
+- (NSArray*)computeUsersAllForFinance: (NSManagedObjectContext*)myContext
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:myContext];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    NSError* error;
+    NSArray *fetchedRecords = [myContext executeFetchRequest:fetchRequest error:&error];
+    return fetchedRecords;
+}
+
+#pragma mark - Get Dates for Users
+
+- (NSArray*) yearsUserForFinance:(User *)withUser inManagedObjectContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"UserIncome"];
+    request.predicate = [NSPredicate predicateWithFormat:@"ANY whoMade == %@", withUser];
+    
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    NSMutableArray* myDateArray = [[NSMutableArray alloc]init];
+    
+    for (UserIncome* uic in matches) {
+        NSNumber*myNumber = [uic.year copy];
+        if ([myDateArray containsObject: myNumber]) {
+        }
+        else {
+            [myDateArray addObject:myNumber];
+        }
+    }
+    return [myDateArray copy];
+}
+
+#pragma mark - Finance Data Fill
+
+-(void) setFinanceForUser: (FinancialYear*) myFinance
+{
+    NSArray* incomeMatches = [[self incomeForFinancialDataForUsers: myFinance]copy];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    myFinance = [self resetMyFinanceTotalForUser:myFinance];
+    for (UserIncome*uic in incomeMatches) {
+        myFinance = [self setMyMonthForUsers:myFinance withUserIncome:uic andCalender:calendar];
+        myFinance = [self setMyQuartersForUsers:myFinance withToken:uic];
+        myFinance = [self setMyFinanceTotalForUsers:myFinance withIncome:uic];
+    }
+    [self saveData];
+}
+
+#pragma mark - Search Range - Users
+
+- (NSArray*) incomeForFinancialDataForUsers: (FinancialYear*) myFinance {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"UserIncome"];
+    NSPredicate *predicateYear = [NSPredicate predicateWithFormat:@"year contains[cd] %@", myFinance.year];
+    
+    NSPredicate *predicateCategory = [NSPredicate predicateWithFormat:@"ANY whoMade == %@", myFinance.whoMade];
+    
+    NSArray *subPredicates = [NSArray arrayWithObjects:predicateYear,predicateCategory, nil];
+    NSPredicate *andPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:subPredicates];
+    request.predicate = andPredicate;
+    
+    NSError *error;
+    NSArray *matches = [self.managedObjectContext executeFetchRequest:request error:&error];
+    return [matches copy];
+}
+
+#pragma mark - Month Checks and Computation ** Multi Use ***
+
+- (FinancialYear*) resetMyFinanceTotalForUser: (FinancialYear*) myFinance
+{
+    myFinance.total = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.q1 =[NSNumber numberWithUnsignedInteger: 0];
+    myFinance.q2 = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.q3 = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.q4 = [NSNumber numberWithUnsignedInteger: 0];
+    
+    myFinance.january = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.february = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.march = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.april = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.may = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.june = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.july = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.august = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.september = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.october = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.november = [NSNumber numberWithUnsignedInteger: 0];
+    myFinance.december = [NSNumber numberWithUnsignedInteger: 0];
+    
+    return myFinance;
+}
+
+#pragma mark - Total Comp
+
+- (FinancialYear*) setMyFinanceTotalForUsers: (FinancialYear*) myFinance withIncome: (UserIncome*)uic {
+    myFinance.total = [NSNumber numberWithUnsignedInteger:[myFinance.total integerValue] + [uic.price integerValue] ];
+    return myFinance;
+}
+
+#pragma mark - Months Comp
+
+- (FinancialYear*) setMyMonthForUsers: (FinancialYear*) myFinance withUserIncome: (UserIncome*)uic andCalender: (NSCalendar*)calendar {
+    //NSLog(@"%@",myFinance.whatType.name);
+    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:uic.date];
+    NSUInteger month = [components month];
+    switch (month) {
+        case 1:
+            myFinance.january =[NSNumber numberWithUnsignedInteger: [myFinance.january integerValue] + [uic.price integerValue]];
+            break;
+        case 2:
+            myFinance.february =[NSNumber numberWithUnsignedInteger: [myFinance.february integerValue] + [uic.price integerValue]];
+            break;
+        case 3:
+            myFinance.march =[NSNumber numberWithUnsignedInteger: [myFinance.march integerValue] + [uic.price integerValue]];
+            break;
+        case 4:
+            myFinance.april =[NSNumber numberWithUnsignedInteger: [myFinance.april integerValue] + [uic.price integerValue]];
+            break;
+        case 5:
+            myFinance.may =[NSNumber numberWithUnsignedInteger: [myFinance.may integerValue] + [uic.price integerValue]];
+            break;
+        case 6:
+            myFinance.june =[NSNumber numberWithUnsignedInteger: [myFinance.june integerValue] + [uic.price integerValue]];
+            break;
+        case 7:
+            myFinance.july =[NSNumber numberWithUnsignedInteger: [myFinance.july integerValue] + [uic.price integerValue]];
+            break;
+        case 8:
+            myFinance.august =[NSNumber numberWithUnsignedInteger: [myFinance.august integerValue] + [uic.price integerValue]];
+            break;
+        case 9:
+            myFinance.september =[NSNumber numberWithUnsignedInteger: [myFinance.september integerValue] + [uic.price integerValue]];
+            break;
+        case 10:
+            myFinance.october =[NSNumber numberWithUnsignedInteger: [myFinance.october integerValue] + [uic.price integerValue]];
+            break;
+        case 11:
+            myFinance.november =[NSNumber numberWithUnsignedInteger: [myFinance.november integerValue] + [uic.price integerValue]];
+            break;
+        case 12:
+            myFinance.december =[NSNumber numberWithUnsignedInteger: [myFinance.december integerValue] + [uic.price integerValue]];
+            break;
+        default:
+            NSLog(@"switch error");
+            break;
+    }
+    return myFinance;
+}
+
+#pragma mark - Quarters
+
+- (FinancialYear*) setMyQuartersForUsers: (FinancialYear*) myFinance withToken: (UserIncome*)uic {
+    if ([self dateTimeInQ1ForIncome:uic.date]) {
+        myFinance.q1 =[NSNumber numberWithUnsignedInteger: [myFinance.q1 integerValue] + [uic.price integerValue]];
+    }
+    if ([self dateTimeInQ2ForIncome:uic.date]) {
+        myFinance.q2 =[NSNumber numberWithUnsignedInteger: [myFinance.q2 integerValue] + [uic.price integerValue]];
+    }
+    if ([self dateTimeInQ3ForIncome:uic.date]) {
+        myFinance.q3 =[NSNumber numberWithUnsignedInteger: [myFinance.q3 integerValue] + [uic.price integerValue]];
+    }
+    if ([self dateTimeInQ4ForIncome:uic.date]) {
+        myFinance.q4 =[NSNumber numberWithUnsignedInteger: [myFinance.q4 integerValue] + [uic.price integerValue]];
+    }
+    return myFinance;
+}
+
+#pragma mark - Quarter Checks ** Multi Use **
+
+- (BOOL) dateTimeInQ1ForIncome: (NSDate*)dateInput
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSDateComponents *beginningDate = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:dateInput];
+    
+    [beginningDate setDay:1];
+    [beginningDate setMonth:10];
+    [beginningDate setHour:0];
+    [beginningDate setMinute:0];
+    [beginningDate setSecond:0];
+    
+    NSDate *theFirstDay = [calendar dateFromComponents:beginningDate];
+    
+    NSDateComponents *endDate = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:dateInput];
+    
+    [endDate setDay:31];
+    [endDate setMonth:12];
+    [endDate setHour:23];
+    [endDate setMinute:59];
+    [endDate setSecond:59];
+    
+    NSDate *theLastDay = [calendar dateFromComponents:endDate];
+    
+    if ([dateInput compare:theFirstDay] == NSOrderedAscending) return NO;
+    
+    if ([dateInput compare:theLastDay] == NSOrderedDescending)return NO;
+    
+    return YES;
+}
+
+- (BOOL) dateTimeInQ2ForIncome: (NSDate*)dateInput
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSDateComponents *beginningDate = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:dateInput];
+    
+    [beginningDate setDay:1];
+    [beginningDate setMonth:1];
+    [beginningDate setHour:0];
+    [beginningDate setMinute:0];
+    [beginningDate setSecond:0];
+    
+    NSDate *theFirstDay = [calendar dateFromComponents:beginningDate];
+    
+    NSDateComponents *endDate = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:dateInput];
+    
+    [endDate setDay:31];
+    [endDate setMonth:3];
+    [endDate setHour:23];
+    [endDate setMinute:59];
+    [endDate setSecond:59];
+    
+    NSDate *theLastDay = [calendar dateFromComponents:endDate];
+    
+    if ([dateInput compare:theFirstDay] == NSOrderedAscending)
+    	return NO;
+    if ([dateInput compare:theLastDay] == NSOrderedDescending)
+    	return NO;
+    return YES;
+}
+
+- (BOOL) dateTimeInQ3ForIncome: (NSDate*)dateInput
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSDateComponents *beginningDate = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:dateInput];
+    
+    [beginningDate setDay:1];
+    [beginningDate setMonth:4];
+    [beginningDate setHour:0];
+    [beginningDate setMinute:0];
+    [beginningDate setSecond:0];
+    
+    NSDate *theFirstDay = [calendar dateFromComponents:beginningDate];
+    
+    NSDateComponents *endDate = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:dateInput];
+    
+    [endDate setDay:30];
+    [endDate setMonth:6];
+    [endDate setHour:23];
+    [endDate setMinute:59];
+    [endDate setSecond:59];
+    
+    NSDate *theLastDay = [calendar dateFromComponents:endDate];
+    
+    if ([dateInput compare:theFirstDay] == NSOrderedAscending)
+    	return NO;
+    if ([dateInput compare:theLastDay] == NSOrderedDescending)
+    	return NO;
+    return YES;
+}
+
+-(BOOL) dateTimeInQ4ForIncome: (NSDate*)dateInput
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSDateComponents *beginningDate = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:dateInput];
+    
+    [beginningDate setDay:1];
+    [beginningDate setMonth:7];
+    [beginningDate setHour:1];
+    [beginningDate setMinute:0];
+    [beginningDate setSecond:0];
+    
+    NSDate *theFirstDay = [calendar dateFromComponents:beginningDate];
+    
+    NSDateComponents *endDate = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:dateInput];
+    
+    [endDate setDay:30];
+    [endDate setMonth:9];
+    [endDate setHour:23];
+    [endDate setMinute:59];
+    [endDate setSecond:59];
+    
+    NSDate *theLastDay = [calendar dateFromComponents:endDate];
+    
+    if ([dateInput compare:theFirstDay] == NSOrderedAscending)
+    	return NO;
+    if ([dateInput compare:theLastDay] == NSOrderedDescending)
+    	return NO;
+    return YES;
+}
